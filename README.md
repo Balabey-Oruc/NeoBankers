@@ -1,99 +1,178 @@
+# BNPL Hackathon Backend
+
 <p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
+  <a href="http://nestjs.com/" target="_blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
 </p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+A comprehensive **Buy Now Pay Later (BNPL)** backend service built with NestJS, designed for hackathon development. This application provides a complete financial ecosystem for credit assessment, user management, and payment processing.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## 🚀 Features
 
-## Description
+- **User Authentication & Authorization** - JWT-based secure authentication system
+- **Credit Decision Engine** - ML-powered credit scoring and decision making
+- **Financial Profile Management** - Complete user financial data handling
+- **Credit Request Processing** - End-to-end credit application workflow
+- **Notification System** - Email notifications for important events
+- **API Documentation** - Swagger/OpenAPI documentation
+- **Database Integration** - PostgreSQL with TypeORM
+- **Secure Password Handling** - bcrypt encryption
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## 🛠️ Tech Stack
 
-## Project setup
+- **Framework**: NestJS (Node.js/TypeScript)
+- **Database**: PostgreSQL with TypeORM
+- **Authentication**: JWT + Passport
+- **API Documentation**: Swagger/OpenAPI
+- **Validation**: class-validator & class-transformer
+- **Email**: @nestjs-modules/mailer
+- **Security**: bcrypt for password hashing
 
+## 📋 Prerequisites
+
+- Node.js (v18 or higher)
+- PostgreSQL Database
+- npm or yarn package manager
+
+## 🚀 Quick Start
+
+### 1. Clone the repository
 ```bash
-$ npm install
+git clone <repository-url>
+cd bnpl-hackathon-backend
 ```
 
-## Compile and run the project
-
+### 2. Install dependencies
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+npm install
 ```
 
-## Run tests
-
+### 3. Environment Setup
+Copy the environment template and configure your variables:
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+cp .env.example .env
 ```
 
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
-
-```bash
-$ npm install -g mau
-$ mau deploy
+Update `.env` with your database and JWT credentials:
+```env
+DATABASE_URL=postgresql://username:password@localhost:5432/bnpl_db
+JWT_SECRET=your-super-secret-jwt-key
+JWT_EXPIRES_IN=7d
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+### 4. Database Setup
+Ensure PostgreSQL is running and create the database:
+```sql
+CREATE DATABASE bnpl_db;
+```
 
-## Resources
+### 5. Run the application
+```bash
+# Development mode with hot reload
+npm run start:dev
 
-Check out a few resources that may come in handy when working with NestJS:
+# Production mode
+npm run start:prod
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+# Build the application
+npm run build
+```
 
-## Support
+## 📚 API Documentation
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+Once the application is running, visit:
+- **Swagger UI**: `http://localhost:3000/api`
+- **API Docs**: `http://localhost:3000/api-json`
 
-## Stay in touch
+## 🔧 Project Structure
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+```
+src/
+├── modules/
+│   ├── auth/           # Authentication & JWT handling
+│   ├── user/           # User management
+│   ├── credit-decision/    # Credit scoring & decisions
+│   ├── credit-request/     # Credit application processing
+│   ├── financial-profile/  # User financial data
+│   ├── ml-scoring/         # Machine learning integration
+│   └── notification/       # Email notifications
+├── entities/           # Database entities
+├── common/             # Shared utilities & decorators
+├── app.module.ts       # Root application module
+├── app.controller.ts   # Root controller
+└── main.ts            # Application entry point
+```
 
-## License
+## 🔐 Authentication
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+The API uses JWT tokens for authentication. Include the token in the Authorization header:
+
+```
+Authorization: Bearer <your-jwt-token>
+```
+
+## 🧪 Testing
+
+```bash
+# Run unit tests
+npm run test
+
+# Run e2e tests
+npm run test:e2e
+
+# Run tests with coverage
+npm run test:cov
+```
+
+## 📊 API Endpoints
+
+### Authentication
+- `POST /auth/register` - User registration
+- `POST /auth/login` - User login
+- `POST /auth/refresh` - Refresh JWT token
+
+### Users
+- `GET /users/profile` - Get user profile
+- `PUT /users/profile` - Update user profile
+
+### Credit Requests
+- `POST /credit-requests` - Submit credit application
+- `GET /credit-requests` - List user credit requests
+- `GET /credit-requests/:id` - Get specific credit request
+
+### Financial Profile
+- `POST /financial-profile` - Create financial profile
+- `GET /financial-profile` - Get financial profile
+- `PUT /financial-profile` - Update financial profile
+
+## 🚀 Deployment
+
+### Environment Variables
+Ensure these environment variables are set in production:
+- `DATABASE_URL` - PostgreSQL connection string
+- `JWT_SECRET` - Secure JWT secret key
+- `JWT_EXPIRES_IN` - Token expiration time
+
+### Docker Deployment
+```bash
+# Build the Docker image
+docker build -t bnpl-backend .
+
+# Run with Docker Compose
+docker-compose up -d
+```
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📝 License
+
+This project is private and unlicensed.
+
+## 🆘 Support
+
+For questions and support, please reach out to the development team or create an issue in the repository.
